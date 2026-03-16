@@ -195,11 +195,10 @@
         .section-stack { padding: 60px 0; background-color: var(--color-text); color: #fff; text-align: center; }
         .section-stack h2 { color: #fff; margin-bottom: 40px; }
         .stack-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        
+
         .stack-grid img {
             transition: transform 0.3s;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            /* Quitamos animación float para mejor rendimiento en móvil, dejamos solo hover */
         }
         .stack-grid img:hover { transform: scale(1.1); cursor: pointer; }
 
@@ -209,8 +208,6 @@
         .project-row {
             display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
             margin-bottom: 120px;
-            /* Eliminamos opacity 0 inicial para evitar CLS (Layout Shift) si JS falla, 
-               lo manejamos con la clase visible si es necesario, o lo dejamos simple */
         }
         .project-row.reverse { direction: rtl; }
         .project-row.reverse > * { direction: ltr; }
@@ -253,7 +250,6 @@
 
         .gallery-slide img:hover { transform: scale(1.05); cursor: pointer; }
 
-        /* Clase especial para la imagen de Looker Studio clickeable */
         .looker-link {
             display: block; width: 100%; height: 100%; position: relative;
         }
@@ -295,7 +291,6 @@
             .grid-2, .project-row, .project-row.reverse { grid-template-columns: 1fr; gap: 40px; direction: ltr; }
             h1.hero-title { font-size: 48px; }
             .project-row { margin-bottom: 80px; }
-            .btn-email, .btn-cv, .btn-github { width: 100%; max-width: 300px; font-size: 16px; }
             .footer-buttons { flex-direction: column; align-items: center; gap: 15px; }
         }
     </style>
@@ -357,7 +352,6 @@
             </div>
 
             <div class="hero-image-container animate-on-load delay-200">
-                <!-- Imagen principal: No lleva loading="lazy" porque es la primera que se ve -->
                 <img src="assets/img/hero-profile.jpg" onerror="this.src='https://placehold.co/400x450?text=Diego+Ruiz'" alt="Diego Ruiz Inga - QA Engineer">
             </div>
         </div>
@@ -382,7 +376,6 @@
                 </ul>
             </div>
             <div class="about-img">
-                <!-- loading="lazy" para diferir la carga -->
                 <img src="assets/img/Diego_Ruiz.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x600?text=Diego+Ruiz'" alt="Diego Ruiz Inga">
             </div>
         </div>
@@ -391,7 +384,6 @@
     <section id="stack" class="section-stack">
         <div class="container">
             <h2>Mi Caja de Herramientas</h2>
-            <!-- Estas imágenes son pequeñas, pero igual usamos lazy loading por buenas prácticas si no están en el primer pantallazo -->
             <div class="stack-grid">
                 <img src="https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white" height="35" loading="lazy">
                 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" height="35" loading="lazy">
@@ -429,7 +421,6 @@
                 <div class="project-image">
                     <div class="gallery-container">
                         <div class="gallery-track">
-                            <!-- Agregado loading="lazy" y decoding="async" -->
                             <div class="gallery-slide"><img src="assets/img/grocers-auto-1.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Urban+Routes+Preview'" alt="Urban Routes 1"></div>
                             <div class="gallery-slide"><img src="assets/img/grocers-auto-2.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Urban+Routes+Code'" alt="Urban Routes 2"></div>
                         </div>
@@ -460,8 +451,6 @@
                         <div class="gallery-track">
                             <div class="gallery-slide"><img src="assets/img/urban_scooter_1.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=API+Testing+Postman'" alt="Urban Scooter API Test 1"></div>
                             <div class="gallery-slide"><img src="assets/img/urban_scooter_2.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Jira+Report'" alt="Urban Scooter API Test 2"></div>
-                            <div class="gallery-slide"><img src="assets/img/urban_scooter_informe.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Jira+Report'" alt="Urban Scooter API Test 3"></div>
-                            <div class="gallery-slide"><img src="assets/img/urban_scooter_informe_detalle.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Jira+Report'" alt="Urban Scooter API Test 4"></div>
                         </div>
                         <button class="gallery-btn prev-btn">❮</button>
                         <button class="gallery-btn next-btn">❯</button>
@@ -469,7 +458,7 @@
                 </div>
             </div>
 
-            <!-- 3. Data Quality & ETL (MODIFICADO: LOOKER STUDIO COMO IMAGEN) -->
+            <!-- 3. Data Quality & ETL (MODIFICADO: GCP Y ENFOQUE PROFESIONAL) -->
             <div class="project-row">
                 <div class="project-content">
                     <h3>Data Quality & ETL (Evolta CRM)</h3>
@@ -480,7 +469,7 @@
                     <p>Unificación y visualización de datos comerciales dispersos. Implementé un proceso ETL robusto para migrar y transformar datos hacia BigQuery.</p>
                     <ul class="project-results">
                         <li>🚀 <strong>Centralización de datos:</strong> Consultas SQL complejas para unificar la data.</li>
-                        <li>⚡ <strong>Optimización:</strong> Dashboard cargado como imagen para máxima velocidad.</li>
+                        <li>⚡ <strong>Optimización:</strong> Dashboard cargado en GCP o en la nube enfocado para que la carga sea rápida y profesional.</li>
                     </ul>
                     <br>
                     <p><small>👇 Click en la imagen para abrir el reporte interactivo.</small></p>
@@ -488,10 +477,8 @@
                 <div class="project-image">
                     <div class="gallery-container">
                         <div class="gallery-track">
-                            <!-- CAMBIO CRÍTICO: IFRAME REMOVIDO, REEMPLAZADO POR IMAGEN CON LINK -->
                             <div class="gallery-slide">
                                 <a href="https://lookerstudio.google.com/u/0/reporting/3e5e78dd-9a75-46fb-a52e-1f17daa0d498/page/p_1b1wnphryd" target="_blank" class="looker-link">
-                                    <!-- NOTA: Debes guardar una captura de tu reporte como 'looker-dashboard.jpg' en assets/img/ -->
                                     <img src="assets/img/looker-dashboard.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/4285F4/ffffff?text=Ver+Dashboard+Interactivo+(Click+Aqui)'" alt="Reporte Looker Studio">
                                     <div class="looker-overlay">
                                         <span class="looker-btn">Abrir Reporte en Vivo ↗</span>
@@ -621,16 +608,6 @@
         </div>
     </section>
 
-    <section class="section-more-projects">
-        <div class="container">
-            <h2 style="margin-bottom: 20px;">¿Te gustó mi trabajo?</h2>
-            <p style="margin-bottom: 30px; font-size: 18px; color: #555;">
-                Tengo más proyectos relacionados a mi expertise que me gustaría mostrarte.
-            </p>
-            <a href="#" class="btn btn-outline" style="padding: 12px 30px; border-color: var(--color-text); color: var(--color-text);">Ver más proyectos →</a>
-        </div>
-    </section>
-
     <footer id="contact">
         <div class="container footer-content">
             <h2>¿Listo para mejorar la calidad de tu software?</h2>
@@ -646,7 +623,7 @@
                     Perfil de Github
                 </a>
             </div>
-            
+
             <div style="margin-top: 50px; opacity: 0.6; font-size: 14px;">
                 &copy; 2025 Diego Ruiz Inga. Hosted on GitHub Pages.
             </div>
@@ -669,15 +646,12 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Dejar de observar una vez que ya apareció para ahorrar recursos
                     observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1 });
 
-        // Observar elementos que se animan
         document.querySelectorAll('.project-row').forEach(el => observer.observe(el));
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
         // 3. Lógica de Galería (Sliders)
         document.querySelectorAll('.gallery-container').forEach(container => {
@@ -685,7 +659,7 @@
             const slides = container.querySelectorAll('.gallery-slide');
             const nextBtn = container.querySelector('.next-btn');
             const prevBtn = container.querySelector('.prev-btn');
-            
+
             let currentIndex = 0;
 
             function updateSlide() {
@@ -696,7 +670,7 @@
                 if (currentIndex < slides.length - 1) {
                     currentIndex++;
                 } else {
-                    currentIndex = 0; // Loop
+                    currentIndex = 0;
                 }
                 updateSlide();
             });
@@ -705,7 +679,7 @@
                 if (currentIndex > 0) {
                     currentIndex--;
                 } else {
-                    currentIndex = slides.length - 1; // Loop
+                    currentIndex = slides.length - 1;
                 }
                 updateSlide();
             });
@@ -713,4 +687,3 @@
     </script>
 </body>
 </html>
-
