@@ -220,13 +220,37 @@
         </div>
     </section>
 
-    <!-- ACTUALIZACIÓN PROYECTOS SMART -->
     <section id="projects" class="section-projects">
         <div class="container">
-            <h5 style="text-align: center; color: var(--color-accent); margin-bottom: 60px;">PORTAFOLIO DESTACADO</h5>
+            <!-- TÍTULO MÁS GRANDE -->
+            <h5 style="text-align: center; color: var(--color-accent); margin-bottom: 60px; font-size: 1.75rem; letter-spacing: 2px; text-transform: uppercase;">PORTAFOLIO DESTACADO</h5>
 
-            <!-- 1. Urban Routes Automation -->
+            <!-- 1. Data Quality & ETL (AHORA PRIMERO) -->
             <div class="project-row">
+                <div class="project-content">
+                    <h3>Data Quality & ETL (Evolta CRM)</h3>
+                    <div class="project-badges">
+                        <img src="https://img.shields.io/badge/BigQuery-669DF6?style=for-the-badge&logo=googlecloud&logoColor=white" alt="BigQuery" loading="lazy" />
+                    </div>
+                    <p>Implementé el pipeline ETL completo para Evolta CRM integrando 3 fuentes (Google Ads, Meta Ads y CRM) hacia BigQuery. Automaticé validaciones de calidad sobre +10,000 registros, reduciendo el tiempo operativo en un 80%.</p>
+                    <ul class="project-results">
+                        <li>🚀 <strong>Pipeline ETL validado:</strong> Reconciliación fuente-destino sobre +10,000 registros, alcanzando 95% de coincidencia entre dashboard y fuente antes de la entrega.</li>
+                        <li>⚡ <strong>Impacto de negocio:</strong> Habilitó el cálculo del CAC por primera vez en la empresa y redujo en un 60% las correcciones post-entrega del dashboard en Looker Studio.</li>
+                    </ul>
+                    <br>
+                    <a href="https://lookerstudio.google.com/u/0/reporting/3e5e78dd-9a75-46fb-a52e-1f17daa0d498/page/p_1b1wnphryd" target="_blank" class="project-link">Ver Reporte en Vivo →</a>
+                </div>
+                <div class="project-image">
+                    <div class="gallery-container">
+                        <div class="gallery-track">
+                            <div class="gallery-slide"><img src="assets/img/looker-dashboard.jpg" loading="lazy" onerror="this.src='https://placehold.co/600x400/4285F4/ffffff?text=Dashboard+Looker+Studio'" alt="ETL Dashboard"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Urban Routes Automation (REVERSE) -->
+            <div class="project-row reverse">
                 <div class="project-content">
                     <h3>Urban Routes Automation</h3>
                     <div class="project-badges">
@@ -251,8 +275,8 @@
                 </div>
             </div>
 
-            <!-- 2. Urban Scooter API Testing -->
-            <div class="project-row reverse">
+            <!-- 3. Urban Scooter API Testing -->
+            <div class="project-row">
                 <div class="project-content">
                     <h3>Urban Scooter API Testing</h3>
                     <div class="project-badges">
@@ -277,31 +301,7 @@
                 </div>
             </div>
 
-            <!-- 3. Data Quality & ETL -->
-            <div class="project-row">
-                <div class="project-content">
-                    <h3>Data Quality & ETL (Evolta CRM)</h3>
-                    <div class="project-badges">
-                        <img src="https://img.shields.io/badge/BigQuery-669DF6?style=for-the-badge&logo=googlecloud&logoColor=white" alt="BigQuery" loading="lazy" />
-                    </div>
-                    <p>Implementé el pipeline ETL completo para Evolta CRM integrando 3 fuentes (Google Ads, Meta Ads y CRM) hacia BigQuery. Automaticé validaciones de calidad sobre +10,000 registros, reduciendo el tiempo operativo en un 80%.</p>
-                    <ul class="project-results">
-                        <li>🚀 <strong>Pipeline ETL validado:</strong> Reconciliación fuente-destino sobre +10,000 registros, alcanzando 95% de coincidencia entre dashboard y fuente antes de la entrega.</li>
-                        <li>⚡ <strong>Impacto de negocio:</strong> Habilitó el cálculo del CAC por primera vez en la empresa y redujo en un 60% las correcciones post-entrega del dashboard en Looker Studio.</li>
-                    </ul>
-                    <br>
-                    <a href="https://lookerstudio.google.com/u/0/reporting/3e5e78dd-9a75-46fb-a52e-1f17daa0d498/page/p_1b1wnphryd" target="_blank" class="project-link">Ver Reporte en Vivo →</a>
-                </div>
-                <div class="project-image">
-                    <div class="gallery-container">
-                        <div class="gallery-track">
-                            <div class="gallery-slide"><img src="assets/img/looker-dashboard.jpg" loading="lazy" onerror="this.src='https://placehold.co/600x400/4285F4/ffffff?text=Dashboard+Looker+Studio'" alt="ETL Dashboard"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. Urban.Lunch Android -->
+            <!-- 4. Urban.Lunch Android (REVERSE) -->
             <div class="project-row reverse">
                 <div class="project-content">
                     <h3>Urban.Lunch – Aplicación Android</h3>
@@ -349,7 +349,7 @@
                 </div>
             </div>
 
-            <!-- 6. Urban.Routes Manual -->
+            <!-- 6. Urban.Routes Manual (REVERSE) -->
             <div class="project-row reverse">
                 <div class="project-content">
                     <h3>Urban.Routes – Manual Regression</h3>
@@ -417,7 +417,6 @@
 
             <div class="footer-buttons">
                 <a href="mailto:ruizingadiego@gmail.com" class="btn btn-primary">ruizingadiego@gmail.com</a>
-                <!-- ENLACE DE CV ACTUALIZADO -->
                 <a href="https://drive.google.com/file/d/1XPP8_qPOX6GsuPZmOC0mTuBRzLMD-6Wy/view?usp=sharing" target="_blank" class="btn btn-outline">📄 CV - Profesional</a>
                 <a href="https://github.com/diegoruizinga98-sys" target="_blank" class="btn btn-outline">Perfil de Github</a>
             </div>
