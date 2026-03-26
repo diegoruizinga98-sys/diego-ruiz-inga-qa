@@ -4,285 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portafolio de Diego Ruiz, QA Automation Engineer especializado en Python, Selenium y Data Quality.">
-    <!-- Título optimizado -->
     <title>Diego Ruiz | QA Automation Engineer</title>
 
-    <!-- Favicon (SVG Inline para carga inmediata) -->
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2300ff67%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><rect x=%224%22 y=%224%22 width=%2216%22 height=%2216%22 rx=%222%22 ry=%222%22></rect><rect x=%229%22 y=%229%22 width=%226%22 height=%226%22></rect><line x1=%229%22 y1=%221%22 x2=%229%22 y2=%224%22></line><line x1=%2215%22 y1=%221%22 x2=%2215%22 y2=%224%22></line><line x1=%229%22 y1=%2220%22 x2=%229%22 y2=%2223%22></line><line x1=%2215%22 y1=%2220%22 x2=%2215%22 y2=%2223%22></line><line x1=%2220%22 y1=%229%22 x2=%2223%22 y2=%229%22></line><line x1=%2220%22 y1=%2214%22 x2=%2223%22 y2=%2214%22></line><line x1=%221%22 y1=%229%22 x2=%224%22 y2=%229%22></line><line x1=%221%22 y1=%2214%22 x2=%224%22 y2=%2214%22></line></svg>">
 
-    <!-- Fuentes (Optimizadas con display swap) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* --- VARIABLES Y RESET --- */
         :root {
             --font-primary: 'Epilogue', sans-serif;
             --font-secondary: 'Work Sans', sans-serif;
             --color-bg: #ffffff;
             --color-text: #1d1e20;
-            --color-accent: #00ff67; /* Verde Neón */
+            --color-accent: #00ff67;
             --color-light-bg: #f2f3f6;
             --max-width: 1240px;
             --header-height: 80px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--font-secondary);
-            color: var(--color-text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            overflow-y: hidden; /* Se desbloquea con JS */
-        }
-
+        body { font-family: var(--font-secondary); color: var(--color-text); line-height: 1.6; overflow-x: hidden; overflow-y: hidden; }
         body.loaded { overflow-y: auto; }
-
-        h1, h2, h3, h4, h5 {
-            font-family: var(--font-primary);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
+        h1, h2, h3, h4, h5 { font-family: var(--font-primary); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
-
-        /* Imágenes responsivas */
         img { max-width: 100%; height: auto; display: block; }
 
-        /* --- PRELOADER --- */
-        #preloader {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #161616;
-            z-index: 9999;
-            display: flex; justify-content: center; align-items: center;
-            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-        }
-
-        .loader {
-            width: 50px; height: 50px;
-            border: 3px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
-            border-top-color: var(--color-accent);
-            animation: spin 1s ease-in-out infinite;
-        }
-
+        /* Preloader */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #161616; z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease-out, visibility 0.5s ease-out; }
+        .loader { width: 50px; height: 50px; border: 3px solid rgba(255,255,255,0.1); border-radius: 50%; border-top-color: var(--color-accent); animation: spin 1s ease-in-out infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
         #preloader.hide { opacity: 0; visibility: hidden; }
 
-        /* --- ANIMACIONES --- */
+        /* Animations */
         .animate-on-load { opacity: 0; animation-fill-mode: forwards; }
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
-
-        body.loaded .animate-on-load {
-            animation-name: fadeInUp;
-            animation-duration: 0.8s;
-            animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
+        body.loaded .animate-on-load { animation-name: fadeInUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); }
         body.loaded header { animation: slideDown 0.8s ease-out; }
 
-        /* --- LAYOUT UTILS --- */
+        /* Layout */
         .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-
-        .btn {
-            display: inline-block; padding: 14px 36px; border-radius: 50px;
-            font-weight: 600; cursor: pointer; transition: all 0.3s ease;
-            text-align: center; border: none;
-        }
+        .btn { display: inline-block; padding: 14px 36px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-align: center; border: none; }
         .btn-primary { background-color: var(--color-text); color: #fff; border: 2px solid var(--color-text); }
-
-        .btn-primary:hover {
-            background-color: var(--color-accent);
-            color: #1d1e20;
-            border-color: var(--color-accent);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 255, 103, 0.3);
-        }
-
+        .btn-primary:hover { background-color: var(--color-accent); color: #1d1e20; border-color: var(--color-accent); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 255, 103, 0.3); }
         .btn-outline { background-color: transparent; border: 2px solid var(--color-text); color: var(--color-text); }
+        .btn-outline:hover { background-color: var(--color-accent); color: #1d1e20; border-color: var(--color-accent); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 255, 103, 0.3); }
 
-        .btn-outline:hover {
-            background-color: var(--color-accent);
-            color: #1d1e20;
-            border-color: var(--color-accent);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 255, 103, 0.3);
-        }
-
-        /* --- HEADER --- */
-        header {
-            height: var(--header-height); display: flex; align-items: center;
-            position: sticky; top: 0; background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #eaeaea;
-        }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; }
-
-        .logo {
-            font-family: var(--font-primary);
-            font-weight: 800;
-            font-size: 1.3rem;
-            color: var(--color-text);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        .logo-icon {
-            width: 24px; height: 24px;
-            stroke: var(--color-accent); stroke-width: 2.5; fill: none;
-            transition: transform 0.3s ease;
-        }
-
+        /* Header */
+        header { height: var(--header-height); display: flex; align-items: center; position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #eaeaea; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo { font-family: var(--font-primary); font-weight: 800; font-size: 1.3rem; color: var(--color-text); display: flex; align-items: center; gap: 8px; letter-spacing: -0.5px; }
+        .logo-icon { width: 24px; height: 24px; stroke: var(--color-accent); stroke-width: 2.5; fill: none; transition: transform 0.3s ease; }
         .logo:hover .logo-icon { transform: scale(1.1) rotate(5deg); }
         .logo-dot { color: var(--color-accent); }
-
-        .nav-links { display: flex; gap: 32px; align-items: center; margin: 0; padding: 0; }
-        .nav-links a { font-weight: 500; font-size: 16px; display: inline-block; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { font-weight: 500; font-size: 16px; }
         .nav-links a:hover { color: var(--color-accent); }
 
-        /* --- HERO --- */
-        .hero {
-            padding: 80px 0;
-            display: flex; align-items: center; min-height: 85vh;
-            background: radial-gradient(circle at top right, #e6ffee, transparent 40%);
-        }
-
+        /* Hero */
+        .hero { padding: 80px 0; display: flex; align-items: center; min-height: 85vh; background: radial-gradient(circle at top right, #e6ffee, transparent 40%); }
         .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 60px; }
         .hero-content { flex: 1; max-width: 650px; }
-
         .hero-image-container { flex: 0 0 400px; position: relative; }
-        .hero-image-container img {
-            width: 100%; height: auto;
-            border-radius: 24px;
-            box-shadow: 20px 20px 0px rgba(0,0,0,0.05), 0 0 0 2px var(--color-accent);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            object-fit: cover; aspect-ratio: 1/1.1;
-        }
-
-        .hero-image-container:hover img {
-            transform: translateY(-5px);
-            box-shadow: 25px 25px 0px rgba(0,0,0,0.05), 0 0 0 3px var(--color-accent);
-        }
-
+        .hero-image-container img { width: 100%; height: auto; border-radius: 24px; box-shadow: 20px 20px 0px rgba(0,0,0,0.05), 0 0 0 2px var(--color-accent); transition: transform 0.3s ease; object-fit: cover; aspect-ratio: 1/1.1; }
+        .hero-image-container:hover img { transform: translateY(-5px); box-shadow: 25px 25px 0px rgba(0,0,0,0.05), 0 0 0 3px var(--color-accent); }
         h1.hero-title { font-size: clamp(40px, 5vw, 72px); letter-spacing: -2px; margin-bottom: 24px; }
-        .hero-subtitle { font-size: clamp(18px, 2vw, 22px); color: #555; margin-bottom: 40px; max-width: 90%; }
+        .hero-subtitle { font-size: clamp(18px, 2vw, 22px); color: #555; margin-bottom: 40px; }
 
-        /* --- ABOUT --- */
+        /* About */
         .section-about { padding: 80px 0; background-color: #fff; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-img img { width: 100%; object-fit: cover; border-radius: 12px; box-shadow: 20px 20px 0px var(--color-light-bg); transition: transform 0.5s ease; }
+        .about-img img { width: 100%; border-radius: 12px; box-shadow: 20px 20px 0px var(--color-light-bg); transition: 0.5s; }
         .about-img img:hover { transform: scale(1.02); }
 
-        /* --- TECH STACK --- */
+        /* Stack */
         .section-stack { padding: 60px 0; background-color: var(--color-text); color: #fff; text-align: center; }
-        .section-stack h2 { color: #fff; margin-bottom: 40px; }
         .stack-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .stack-grid img { transition: 0.3s; }
+        .stack-grid img:hover { transform: scale(1.1); }
 
-        .stack-grid img {
-            transition: transform 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .stack-grid img:hover { transform: scale(1.1); cursor: pointer; }
-
-        /* --- PROYECTOS --- */
+        /* Projects */
         .section-projects { padding: 100px 0; }
-
-        .project-row {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-            margin-bottom: 120px;
-        }
+        .project-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 120px; }
         .project-row.reverse { direction: rtl; }
         .project-row.reverse > * { direction: ltr; }
-
         .project-content h3 { font-size: 32px; margin-bottom: 16px; }
         .project-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-        .project-content p { text-align: justify; }
-        .project-results { margin-top: 15px; padding-left: 0; list-style: none; }
+        .project-results { margin-top: 15px; }
         .project-results li { margin-bottom: 8px; font-size: 15px; display: flex; gap: 8px; }
+        .project-link { font-weight: 700; color: #00cc52; display: inline-block; }
+        .project-link:hover { transform: translateX(8px); }
 
-        .project-link {
-            font-weight: 700; color: #00cc52; text-decoration: none;
-            display: inline-block; transition: transform 0.3s ease, color 0.3s ease;
-        }
-        .project-link:hover { transform: translateX(8px); color: #00a341; }
-
-        /* --- GALERÍA OPTIMIZADA --- */
-        .gallery-container {
-            position: relative; width: 100%; aspect-ratio: 16/9;
-            overflow: hidden; border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #2b2b2b;
-        }
-
-        .gallery-track {
-            display: flex; transition: transform 0.4s ease-in-out;
-            width: 100%; height: 100%;
-        }
-
-        .gallery-slide {
-            min-width: 100%; height: 100%;
-            display: flex; align-items: center; justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .gallery-slide img {
-            width: 100%; height: 100%; object-fit: contain;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-slide img:hover { transform: scale(1.05); cursor: pointer; }
-
-        .looker-link {
-            display: block; width: 100%; height: 100%; position: relative;
-        }
-        .looker-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;
-            opacity: 0; transition: opacity 0.3s;
-        }
-        .looker-link:hover .looker-overlay { opacity: 1; }
-        .looker-btn {
-            background: var(--color-accent); color: #000; padding: 10px 20px;
-            border-radius: 20px; font-weight: bold;
-        }
-
-        .gallery-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5); color: #fff;
-            border: none; font-size: 24px; padding: 10px 15px;
-            cursor: pointer; z-index: 10; border-radius: 50%;
-            width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
-        }
+        /* Gallery Slider */
+        .gallery-container { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #2b2b2b; }
+        .gallery-track { display: flex; transition: transform 0.4s ease-in-out; width: 100%; height: 100%; }
+        .gallery-slide { min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .gallery-slide img { width: 100%; height: 100%; object-fit: contain; }
+        .gallery-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: #fff; border: none; font-size: 24px; padding: 10px 15px; cursor: pointer; z-index: 10; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; }
         .gallery-btn:hover { background: var(--color-accent); color: #000; }
         .prev-btn { left: 15px; }
         .next-btn { right: 15px; }
 
-        /* --- FOOTER --- */
+        /* Footer */
         .section-more-projects { padding: 80px 0; background-color: #f9f9f9; text-align: center; border-top: 1px solid #eee; }
         footer { background-color: var(--color-light-bg); padding: 80px 0; text-align: center; }
-        .footer-content { display: flex; flex-direction: column; align-items: center; gap: 30px; }
-        .footer-buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; width: 100%; }
-        .btn-email { font-size: 18px; padding: 16px 40px; }
+        .footer-buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             .nav-links { display: none; }
             .hero-layout { flex-direction: column-reverse; text-align: center; gap: 40px; }
@@ -291,7 +127,7 @@
             .grid-2, .project-row, .project-row.reverse { grid-template-columns: 1fr; gap: 40px; direction: ltr; }
             h1.hero-title { font-size: 48px; }
             .project-row { margin-bottom: 80px; }
-            .footer-buttons { flex-direction: column; align-items: center; gap: 15px; }
+            .footer-buttons { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -303,30 +139,17 @@
         <div class="container nav-container">
             <a href="#" class="logo">
                 <svg xmlns="http://www.w3.org/2000/svg" class="logo-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                    <rect x="9" y="9" width="6" height="6"></rect>
-                    <line x1="9" y1="1" x2="9" y2="4"></line>
-                    <line x1="15" y1="1" x2="15" y2="4"></line>
-                    <line x1="9" y1="20" x2="9" y2="23"></line>
-                    <line x1="15" y1="20" x2="15" y2="23"></line>
-                    <line x1="20" y1="9" x2="23" y2="9"></line>
-                    <line x1="20" y1="14" x2="23" y2="14"></line>
-                    <line x1="1" y1="9" x2="4" y2="9"></line>
-                    <line x1="1" y1="14" x2="4" y2="14"></line>
+                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect>
+                    <line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line>
                 </svg>
                 <span>Diego Ruiz<span class="logo-dot">.</span></span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="logo-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    <path d="m9 12 2 2 4-4"></path>
-                </svg>
             </a>
-
             <nav>
                 <ul class="nav-links">
                     <li><a href="#about">Sobre mí</a></li>
                     <li><a href="#stack">Tech Stack</a></li>
                     <li><a href="#projects">Proyectos</a></li>
-                    <li><a href="#contact" class="btn btn-primary" style="padding: 10px 24px; font-size: 14px; display: flex; align-items: center;">Hablemos</a></li>
+                    <li><a href="#contact" class="btn btn-primary" style="padding: 10px 24px; font-size: 14px;">Hablemos</a></li>
                 </ul>
             </nav>
         </div>
@@ -336,11 +159,12 @@
         <div class="container hero-layout">
             <div class="hero-content">
                 <h1 class="hero-title animate-on-load delay-100">
-                    <span style="color: var(--color-accent); text-shadow: 1px 1px 0px rgba(0,0,0,0.1);">QA & Automation Engineer</span><br>
+                    <span style="color: var(--color-accent);">QA & Automation Engineer</span><br>
                     Data-Driven Quality.
                 </h1>
+                <!-- ACTUALIZACIÓN HERO BADGES -->
                 <p class="animate-on-load delay-100" style="font-size: 0.85rem; font-weight: 700; color: #555; margin-bottom: 24px; letter-spacing: 0.5px; text-transform: uppercase;">
-                    QA ENGINEER · QA MANUAL TESTER · QA DOCUMENTADOR · QA AUTOMATIZADOR JUNIOR
+                    QA ENGINEER · DATA QUALITY ENGINEER · QA AUTOMATIZADOR · QA DOCUMENTADOR
                 </p>
                 <p class="hero-subtitle animate-on-load delay-200">
                     Especialista en <strong>Testing Automatizado</strong>. Uso análisis de <strong>Datos y Lógica de Negocio</strong> para asegurar software robusto y rentable.
@@ -350,57 +174,56 @@
                     <a href="https://linkedin.com/in/diegoruizinga" target="_blank" class="btn btn-outline">LinkedIn</a>
                 </div>
             </div>
-
             <div class="hero-image-container animate-on-load delay-200">
                 <img src="assets/img/hero-profile.jpg" onerror="this.src='https://placehold.co/400x450?text=Diego+Ruiz'" alt="Diego Ruiz Inga - QA Engineer">
             </div>
         </div>
     </section>
 
+    <!-- ACTUALIZACIÓN SOBRE MÍ -->
     <section id="about" class="section-about">
         <div class="container grid-2">
             <div>
-                <h5 style="color: var(--color-accent); text-transform: uppercase; letter-spacing: 1px; text-shadow: 0px 0px 1px rgba(0,0,0,0.2);">Sobre mí</h5>
+                <h5 style="color: var(--color-accent); text-transform: uppercase; letter-spacing: 1px;">Sobre mí</h5>
                 <h2>QA Automation Engineer & Data Enthusiast</h2>
                 <p style="margin-bottom: 20px;">
-                    Ante todo, soy un <strong>QA Engineer</strong> obsesionado con la calidad. Me especializo en diseñar estrategias de prueba y <strong>automatizar casos críticos</strong> para blindar el software contra errores antes de que lleguen al usuario.
+                    Soy un QA Engineer con experiencia en Datos, enfocado en garantizar la calidad desde adentro del proceso, no solo al final. Me especializo en diseñar estrategias de prueba que combinan testing manual, automatización y validación de datos para asegurar que los entregables cumplan los requerimientos antes de llegar al usuario.
                 </p>
                 <p style="margin-bottom: 20px;">
-                    Gracias a mi carrera de <strong>Ingeniería Empresarial</strong>, entiendo la lógica de negocio detrás del código. Complemento esta visión estratégica con un enfoque técnico moderno: utilizo <strong>Python, SQL y n8n</strong> para validar datos, y aplico <strong>IA Generativa & Prompt Engineering</strong> para acelerar la creación de scripts y escenarios de prueba complejos.
+                    Mi formación en Ingeniería Empresarial me permite leer el software con lógica de negocio: conecto los requisitos funcionales con lo que realmente debe ocurrir en producción. He trabajado con Selenium, Python, Postman y SQL ejecutando desde pruebas de regresión cross-browser hasta validaciones de endpoints de API con más de 70 casos de prueba documentados. También aplico IA generativa y Prompt Engineering para optimizar scripts y escenarios de prueba complejos.
                 </p>
                 <p><strong>Lo que aporto:</strong></p>
                 <ul style="margin-top: 10px; display: grid; gap: 10px;">
-                    <li>✅ <strong>QA Técnico:</strong> Automatización con Selenium y Pruebas de API.</li>
-                    <li>✅ <strong>AI-Powered QA:</strong> Uso de LLMs y Prompts para optimizar flujos de testing.</li>
-                    <li>✅ <strong>Calidad de Datos:</strong> Validación profunda con SQL y ETLs.</li>
+                    <li>✅ <strong>QA Técnico:</strong> Automatización con Selenium, pruebas de API con Postman y cross-browser testing en múltiples entornos.</li>
+                    <li>✅ <strong>AI-Powered QA:</strong> Uso de IA generativa y Prompt Engineering para acelerar la creación de scripts y escenarios de prueba complejos.</li>
+                    <li>✅ <strong>Calidad de Datos:</strong> Validación ETL, SQL y pipeline testing con BigQuery y Looker Studio sobre +10,000 registros.</li>
                 </ul>
             </div>
             <div class="about-img">
-                <img src="assets/img/Diego_Ruiz.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x600?text=Diego+Ruiz'" alt="Diego Ruiz Inga">
+                <img src="assets/img/Diego_Ruiz.png" loading="lazy" onerror="this.src='https://placehold.co/600x600?text=Diego+Ruiz'" alt="Diego Ruiz Inga">
             </div>
         </div>
     </section>
 
     <section id="stack" class="section-stack">
         <div class="container">
-            <h2>Mi Caja de Herramientas</h2>
+            <h2 style="margin-bottom: 40px;">Mi Caja de Herramientas</h2>
             <div class="stack-grid">
                 <img src="https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white" height="35" loading="lazy">
                 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" height="35" loading="lazy">
                 <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" height="35" loading="lazy">
                 <img src="https://img.shields.io/badge/n8n-FF6584?style=for-the-badge&logo=n8n&logoColor=white" height="35" loading="lazy">
-                <img src="https://img.shields.io/badge/Google%20Apps%20Script-4285F4?style=for-the-badge&logo=google&logoColor=white" height="35" loading="lazy">
                 <img src="https://img.shields.io/badge/BigQuery-669DF6?style=for-the-badge&logo=googlecloud&logoColor=white" height="35" loading="lazy">
                 <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" height="35" loading="lazy">
-                <img src="https://img.shields.io/badge/Looker%20Studio-4285F4?style=for-the-badge&logo=looker&logoColor=white" height="35" loading="lazy">
                 <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" height="35" loading="lazy">
             </div>
         </div>
     </section>
 
+    <!-- ACTUALIZACIÓN PROYECTOS SMART -->
     <section id="projects" class="section-projects">
         <div class="container">
-            <h5 style="text-align: center; color: var(--color-accent); margin-bottom: 60px; text-shadow: 0px 0px 1px rgba(0,0,0,0.2);">PORTAFOLIO DESTACADO</h5>
+            <h5 style="text-align: center; color: var(--color-accent); margin-bottom: 60px;">PORTAFOLIO DESTACADO</h5>
 
             <!-- 1. Urban Routes Automation -->
             <div class="project-row">
@@ -408,12 +231,11 @@
                     <h3>Urban Routes Automation</h3>
                     <div class="project-badges">
                         <img src="https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white" alt="Selenium" loading="lazy" />
-                        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" loading="lazy" />
                     </div>
-                    <p>Realicé pruebas de regresión para Urban.Routes. Validé la lógica de negocio mediante técnicas como <strong>clases de equivalencia y valores límite</strong>.</p>
+                    <p>Automaticé el flujo completo de pedido de Urban Routes con Selenium y Page Object Model, reduciendo el tiempo de regresión en un 97% — de 30 minutos manuales a menos de 1 minuto ejecutable.</p>
                     <ul class="project-results">
-                        <li>📋 <strong>Listas de comprobación:</strong> Validación de diseño de formularios.</li>
-                        <li>🧭 <strong>Pruebas Cross-browser:</strong> Ejecución funcional en Chrome y Firefox.</li>
+                        <li>📋 <strong>Listas de comprobación:</strong> 4 checklists y 67 test cases en Chrome (800×600) y Firefox (1920×1080), alcanzando el 100% de aprobación antes del lanzamiento.</li>
+                        <li>🧭 <strong>Pruebas Cross-browser:</strong> Suite estructurada en 3 capas independientes (POM), detectando inconsistencias visibles solo en resoluciones específicas de viewport.</li>
                     </ul>
                     <br>
                     <a href="https://github.com/diegoruizinga98-sys/qa-project-Urban-Routes-es" target="_blank" class="project-link">Ver Código en GitHub →</a>
@@ -421,11 +243,10 @@
                 <div class="project-image">
                     <div class="gallery-container">
                         <div class="gallery-track">
-                            <div class="gallery-slide"><img src="assets/img/grocers-auto-1.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Urban+Routes+Preview'" alt="Urban Routes 1"></div>
-                            <div class="gallery-slide"><img src="assets/img/grocers-auto-2.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Urban+Routes+Code'" alt="Urban Routes 2"></div>
+                            <div class="gallery-slide"><img src="assets/img/grocers-auto-1.png" loading="lazy" onerror="this.src='https://placehold.co/600x400/222/fff?text=Urban+Routes+Preview'" alt="Urban Routes 1"></div>
+                            <div class="gallery-slide"><img src="assets/img/grocers-auto-2.png" loading="lazy" onerror="this.src='https://placehold.co/600x400/222/fff?text=Urban+Routes+Code'" alt="Urban Routes 2"></div>
                         </div>
-                        <button class="gallery-btn prev-btn">❮</button>
-                        <button class="gallery-btn next-btn">❯</button>
+                        <button class="gallery-btn prev-btn">❮</button><button class="gallery-btn next-btn">❯</button>
                     </div>
                 </div>
             </div>
@@ -436,12 +257,11 @@
                     <h3>Urban Scooter API Testing</h3>
                     <div class="project-badges">
                         <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Postman" loading="lazy" />
-                        <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" alt="JIRA" loading="lazy" />
                     </div>
-                    <p>Validé la calidad de una aplicación para alquiler de scooters. Analicé los requisitos funcionales y validé la integración de datos con Postman.</p>
+                    <p>Diseñé una estrategia de pruebas autónoma sobre 3 capas del sistema (web, móvil y API) para Urban Scooter, consolidando 164 validaciones en un único entregable sin documentación previa y logrando el 100% de aprobación.</p>
                     <ul class="project-results">
-                        <li>🧪 <strong>54 casos de prueba:</strong> Diseñé y ejecuté casos para validaciones de API.</li>
-                        <li>🔗 <strong>4 endpoints probados:</strong> (GET, POST, DELETE) usando Postman.</li>
+                        <li>🧪 <strong>164 validaciones cubiertas:</strong> 100% de aprobación en web (36/36), datos (55/55) y API (50/50) antes del despliegue.</li>
+                        <li>🔗 <strong>50 requests con Postman:</strong> Cobertura completa (100%) de los endpoints críticos de reserva y disponibilidad, verificando HTTP, errores y coherencia de datos.</li>
                     </ul>
                     <br>
                     <a href="https://drive.google.com/drive/folders/1hYNHTBjCoAHzcap7S92FkVfTF3zZWYCC?usp=sharing" target="_blank" class="project-link">Ver Documentación →</a>
@@ -449,62 +269,49 @@
                 <div class="project-image">
                     <div class="gallery-container">
                         <div class="gallery-track">
-                            <div class="gallery-slide"><img src="assets/img/urban_scooter_1.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=API+Testing+Postman'" alt="Urban Scooter API Test 1"></div>
-                            <div class="gallery-slide"><img src="assets/img/urban_scooter_2.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Jira+Report'" alt="Urban Scooter API Test 2"></div>
+                            <div class="gallery-slide"><img src="assets/img/urban_scooter_1.png" loading="lazy" onerror="this.src='https://placehold.co/600x400/222/fff?text=API+Testing+Postman'" alt="Urban Scooter 1"></div>
+                            <div class="gallery-slide"><img src="assets/img/urban_scooter_2.png" loading="lazy" onerror="this.src='https://placehold.co/600x400/222/fff?text=Report'" alt="Urban Scooter 2"></div>
                         </div>
-                        <button class="gallery-btn prev-btn">❮</button>
-                        <button class="gallery-btn next-btn">❯</button>
+                        <button class="gallery-btn prev-btn">❮</button><button class="gallery-btn next-btn">❯</button>
                     </div>
                 </div>
             </div>
 
-            <!-- 3. Data Quality & ETL (MODIFICADO: GCP Y ENFOQUE PROFESIONAL) -->
+            <!-- 3. Data Quality & ETL -->
             <div class="project-row">
                 <div class="project-content">
                     <h3>Data Quality & ETL (Evolta CRM)</h3>
                     <div class="project-badges">
                         <img src="https://img.shields.io/badge/BigQuery-669DF6?style=for-the-badge&logo=googlecloud&logoColor=white" alt="BigQuery" loading="lazy" />
-                        <img src="https://img.shields.io/badge/Looker%20Studio-4285F4?style=for-the-badge&logo=looker&logoColor=white" alt="Looker" loading="lazy" />
                     </div>
-                    <p>Unificación y visualización de datos comerciales dispersos. Implementé un proceso ETL robusto para migrar y transformar datos hacia BigQuery.</p>
+                    <p>Implementé el pipeline ETL completo para Evolta CRM integrando 3 fuentes (Google Ads, Meta Ads y CRM) hacia BigQuery. Automaticé validaciones de calidad sobre +10,000 registros, reduciendo el tiempo operativo en un 80%.</p>
                     <ul class="project-results">
-                        <li>🚀 <strong>Centralización de datos:</strong> Consultas SQL complejas para unificar la data.</li>
-                        <li>⚡ <strong>Optimización:</strong> Dashboard cargado en GCP o en la nube enfocado para que la carga sea rápida y profesional.</li>
+                        <li>🚀 <strong>Pipeline ETL validado:</strong> Reconciliación fuente-destino sobre +10,000 registros, alcanzando 95% de coincidencia entre dashboard y fuente antes de la entrega.</li>
+                        <li>⚡ <strong>Impacto de negocio:</strong> Habilitó el cálculo del CAC por primera vez en la empresa y redujo en un 60% las correcciones post-entrega del dashboard en Looker Studio.</li>
                     </ul>
                     <br>
-                    <p><small>👇 Click en la imagen para abrir el reporte interactivo.</small></p>
+                    <a href="https://lookerstudio.google.com/u/0/reporting/3e5e78dd-9a75-46fb-a52e-1f17daa0d498/page/p_1b1wnphryd" target="_blank" class="project-link">Ver Reporte en Vivo →</a>
                 </div>
                 <div class="project-image">
                     <div class="gallery-container">
                         <div class="gallery-track">
-                            <div class="gallery-slide">
-                                <a href="https://lookerstudio.google.com/u/0/reporting/3e5e78dd-9a75-46fb-a52e-1f17daa0d498/page/p_1b1wnphryd" target="_blank" class="looker-link">
-                                    <img src="assets/img/looker-dashboard.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/4285F4/ffffff?text=Ver+Dashboard+Interactivo+(Click+Aqui)'" alt="Reporte Looker Studio">
-                                    <div class="looker-overlay">
-                                        <span class="looker-btn">Abrir Reporte en Vivo ↗</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="gallery-slide"><img src="assets/img/data-etl-diagram.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x600/222/fff?text=ETL+Architecture'" alt="ETL"></div>
+                            <div class="gallery-slide"><img src="assets/img/looker-dashboard.jpg" loading="lazy" onerror="this.src='https://placehold.co/600x400/4285F4/ffffff?text=Dashboard+Looker+Studio'" alt="ETL Dashboard"></div>
                         </div>
-                        <button class="gallery-btn prev-btn">❮</button>
-                        <button class="gallery-btn next-btn">❯</button>
                     </div>
                 </div>
             </div>
 
-            <!-- 4. Urban.Lunch -->
+            <!-- 4. Urban.Lunch Android -->
             <div class="project-row reverse">
                 <div class="project-content">
                     <h3>Urban.Lunch – Aplicación Android</h3>
                     <div class="project-badges">
-                        <img src="https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white" alt="Android Studio" loading="lazy" />
-                        <img src="https://img.shields.io/badge/Mobile%20Testing-1AB26B?style=for-the-badge" alt="Mobile Testing" loading="lazy" />
+                        <img src="https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white" alt="Android" loading="lazy" />
                     </div>
-                    <p>Validé la primera versión de Urban.Lunch, una aplicación Android. Probé la app en un emulador Android Studio, verificando la interacción de la interfaz y lógica.</p>
+                    <p>Validé la primera versión del APK de Urban Lunch en Android Studio desde cero, sin documentación de pruebas previa. Diseñé y ejecuté 72 test cases logrando detectar 14 defectos con una tasa del 19%.</p>
                     <ul class="project-results">
-                        <li>✅ <strong>Lista de Verificación:</strong> Elaborada en base a requisitos funcionales.</li>
-                        <li>📲 <strong>Pruebas en Emulador:</strong> Validación de UI y botones físicos.</li>
+                        <li>✅ <strong>Lista de Verificación:</strong> 72 test cases cubriendo escenarios límite, negativos y flujos críticos — 81% pass rate (58 PASSED / 14 FAILED).</li>
+                        <li>📲 <strong>Pruebas en Emulador:</strong> 14 defectos de alto impacto en UX documentados en JIRA con pasos de reproducción, severidad y evidencia visual capturada.</li>
                     </ul>
                     <br>
                     <a href="https://drive.google.com/drive/folders/1vhlUBfbzcVaWPfCRbrkFrTsnELTHIEvB?usp=sharing" target="_blank" class="project-link">Ver Documentación →</a>
@@ -512,27 +319,23 @@
                 <div class="project-image">
                     <div class="gallery-container">
                         <div class="gallery-track">
-                            <div class="gallery-slide"><img src="assets/img/urban-lunch-1.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=App+Mobile+Preview'" alt="Lunch 1"></div>
-                            <div class="gallery-slide"><img src="assets/img/urban-lunch-2.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=App+Testing+Flow'" alt="Lunch 2"></div>
+                            <div class="gallery-slide"><img src="assets/img/urban-lunch-1.png" loading="lazy" onerror="this.src='https://placehold.co/600x400/222/fff?text=Android+App+Testing'" alt="Lunch 1"></div>
                         </div>
-                        <button class="gallery-btn prev-btn">❮</button>
-                        <button class="gallery-btn next-btn">❯</button>
                     </div>
                 </div>
             </div>
 
-            <!-- 5. Urban.Grocers Manual -->
+            <!-- 5. Urban.Grocers Backend -->
             <div class="project-row">
                 <div class="project-content">
                     <h3>Urban.Grocers – Backend & API</h3>
                     <div class="project-badges">
                         <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Postman" loading="lazy" />
-                        <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" alt="JIRA" loading="lazy" />
                     </div>
-                    <p>Validación del backend de Urban.Grocers. Estudié la documentación técnica en Apidoc y diseñé una lista de comprobación centrada en flujos de datos.</p>
+                    <p>Analicé los requisitos de Urban Grocers identificando más de 5 zonas grises críticas antes de escribir el primer test case. Construí 2 artefactos de análisis en draw.io (mapa mental y diagrama de flujo) para estructurar la cobertura.</p>
                     <ul class="project-results">
-                        <li>✔️ <strong>70 casos de prueba:</strong> Diseñé casos exhaustivos.</li>
-                        <li>🔍 <strong>Pruebas de Endpoints:</strong> Validación en Postman documentando errores JSON.</li>
+                        <li>✔️ <strong>71 casos de prueba:</strong> Sobre 2 endpoints POST: 46 aprobados y 25 defectos detectados (35% defect rate), reportados en JIRA con trazabilidad directa.</li>
+                        <li>🔍 <strong>Pruebas de Endpoints:</strong> Cobertura completa de respuestas 200 OK, errores 400 y validaciones de estructura de datos antes del despliegue.</li>
                     </ul>
                     <br>
                     <a href="https://drive.google.com/drive/folders/1d8OTcI0mvg1a99J-VfiXzY74-YbjH6Tm?usp=sharing" target="_blank" class="project-link">Ver Documentación →</a>
@@ -540,11 +343,8 @@
                 <div class="project-image">
                     <div class="gallery-container">
                         <div class="gallery-track">
-                            <div class="gallery-slide"><img src="assets/img/urban-grocers-1.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Backend+Test+1'" alt="Grocers 1"></div>
-                            <div class="gallery-slide"><img src="assets/img/urban-grocers-2.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Backend+Test+2'" alt="Grocers 2"></div>
+                            <div class="gallery-slide"><img src="assets/img/urban-grocers-1.png" loading="lazy" onerror="this.src='https://placehold.co/600x400/222/fff?text=API+Backend+Documentation'" alt="Grocers 1"></div>
                         </div>
-                        <button class="gallery-btn prev-btn">❮</button>
-                        <button class="gallery-btn next-btn">❯</button>
                     </div>
                 </div>
             </div>
@@ -554,13 +354,12 @@
                 <div class="project-content">
                     <h3>Urban.Routes – Manual Regression</h3>
                     <div class="project-badges">
-                        <img src="https://img.shields.io/badge/Manual%20Testing-007ACC?style=for-the-badge" alt="Manual Testing" loading="lazy" />
-                        <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" alt="JIRA" loading="lazy" />
+                        <img src="https://img.shields.io/badge/Manual%20Testing-007ACC?style=for-the-badge" alt="Manual" loading="lazy" />
                     </div>
-                    <p>Pruebas de regresión para Urban.Routes. Elaboré listas de comprobación para validar el diseño del formulario de reserva y funciones clave.</p>
+                    <p>Validé la funcionalidad de car-sharing de Urban Routes en 2 navegadores con resoluciones distintas. Elaboré 4 listas de comprobación para formularios, ventanas clave y métodos de pago.</p>
                     <ul class="project-results">
-                        <li>✔️ <strong>Diseño de Pruebas:</strong> Uso de clases de equivalencia.</li>
-                        <li>🐞 <strong>Reporte de Defectos:</strong> Documentación detallada de errores de interfaz.</li>
+                        <li>✔️ <strong>Diseño de Pruebas:</strong> 67 test cases en Chrome (800×600) y Firefox (1920×1080), 100% aprobados — alcanzando 95% de cobertura funcional del car-sharing.</li>
+                        <li>🐞 <strong>Reporte de Defectos:</strong> Inconsistencias cross-browser documentadas en JIRA con pasos de reproducción, severidad clasificada y evidencia visual.</li>
                     </ul>
                     <br>
                     <a href="https://drive.google.com/drive/folders/1wskMZgVsphhaVxGmu0Y33nkUHGPMp3hX?usp=drive_link" target="_blank" class="project-link">Ver Documentación →</a>
@@ -568,11 +367,8 @@
                 <div class="project-image">
                     <div class="gallery-container">
                         <div class="gallery-track">
-                            <div class="gallery-slide"><img src="assets/img/urban-routes-manual-1.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Regression+Test+1'" alt="Manual 1"></div>
-                            <div class="gallery-slide"><img src="assets/img/urban-routes-manual-2.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Regression+Test+2'" alt="Manual 2"></div>
+                            <div class="gallery-slide"><img src="assets/img/urban-routes-manual-1.png" loading="lazy" onerror="this.src='https://placehold.co/600x400/222/fff?text=Regression+Checklist'" alt="Manual 1"></div>
                         </div>
-                        <button class="gallery-btn prev-btn">❮</button>
-                        <button class="gallery-btn next-btn">❯</button>
                     </div>
                 </div>
             </div>
@@ -583,12 +379,11 @@
                     <h3>Urban.Grocers – Automation Framework</h3>
                     <div class="project-badges">
                         <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" loading="lazy" />
-                        <img src="https://img.shields.io/badge/Test%20Automation-007ACC?style=for-the-badge" alt="Automation" loading="lazy" />
                     </div>
-                    <p>Automatización de la validación de kits de productos en Urban.Grocers. Se diseñó una suite de pruebas para el campo name usando Python y Requests.</p>
+                    <p>Convertí la lista de comprobación manual del campo 'name' en una suite automatizada con Python y Pytest, reduciendo el tiempo de ejecución en más del 90% y eliminando el envío manual de requests desde Postman.</p>
                     <ul class="project-results">
-                        <li>✅ <strong>9 pruebas automatizadas:</strong> Cubriendo casos límite.</li>
-                        <li>🧩 <strong>Arquitectura Modular:</strong> Código organizado en archivos de configuración.</li>
+                        <li>✅ <strong>3 tipos de escenario automatizados:</strong> Válidos, inválidos y de borde sobre el endpoint POST de creación de kits — garantizando 100% de reproducibilidad.</li>
+                        <li>🧩 <strong>Arquitectura Modular:</strong> Suite con configuración en data.py, funciones de prueba independientes y repositorio entregado en GitHub con historial organizado.</li>
                     </ul>
                     <br>
                     <a href="https://github.com/diegoruizinga98-sys/qa-project-Urban-Grocers-app-es/" target="_blank" class="project-link">Repositorio GitHub →</a>
@@ -596,11 +391,8 @@
                 <div class="project-image">
                     <div class="gallery-container">
                         <div class="gallery-track">
-                            <div class="gallery-slide"><img src="assets/img/grocers-auto-1.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Python+Automation'" alt="Auto 1"></div>
-                            <div class="gallery-slide"><img src="assets/img/grocers-auto-2.png" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x400/222/fff?text=Code+Structure'" alt="Auto 2"></div>
+                            <div class="gallery-slide"><img src="assets/img/grocers-auto-1.png" loading="lazy" onerror="this.src='https://placehold.co/600x400/222/fff?text=Pytest+Framework'" alt="Auto 1"></div>
                         </div>
-                        <button class="gallery-btn prev-btn">❮</button>
-                        <button class="gallery-btn next-btn">❯</button>
                     </div>
                 </div>
             </div>
@@ -608,20 +400,26 @@
         </div>
     </section>
 
+    <section class="section-more-projects">
+        <div class="container">
+            <h2>¿Te gustó mi trabajo?</h2>
+            <p style="margin: 20px 0 30px; font-size: 18px; color: #555;">Tengo más proyectos relacionados a mi expertise que me gustaría mostrarte.</p>
+            <a href="#" class="btn btn-outline">Ver más proyectos →</a>
+        </div>
+    </section>
+
     <footer id="contact">
-        <div class="container footer-content">
+        <div class="container">
             <h2>¿Listo para mejorar la calidad de tu software?</h2>
-            <p style="margin-bottom: 10px; max-width: 600px; text-align: center;">
-                Busco oportunidades como QA Engineer o Data Quality Specialist donde pueda aportar mi visión híbrida.
+            <!-- ACTUALIZACIÓN FRASE DE BÚSQUEDA -->
+            <p style="margin: 20px auto; max-width: 600px;">
+                Busco oportunidades como QA Engineer o Data Quality Engineer donde pueda combinar automatización, testing de API y validación de datos para garantizar calidad desde adentro del proceso.
             </p>
 
             <div class="footer-buttons">
-                <a href="mailto:ruizingadiego@gmail.com" class="btn btn-primary btn-email">ruizingadiego@gmail.com</a>
-                <a href="https://drive.google.com/file/d/1uV_y_k54E1joS9cEFo3RSacaBeYH9Anh/view?usp=sharing" target="_blank" class="btn btn-outline btn-cv">📄 CV - Profesional</a>
-                <a href="https://github.com/diegoruizinga98-sys" target="_blank" class="btn btn-outline btn-github" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-                    Perfil de Github
-                </a>
+                <a href="mailto:ruizingadiego@gmail.com" class="btn btn-primary">ruizingadiego@gmail.com</a>
+                <a href="https://drive.google.com/file/d/1uV_y_k54E1joS9cEFo3RSacaBeYH9Anh/view?usp=sharing" target="_blank" class="btn btn-outline">📄 CV - Profesional</a>
+                <a href="https://github.com/diegoruizinga98-sys" target="_blank" class="btn btn-outline">Perfil de Github</a>
             </div>
 
             <div style="margin-top: 50px; opacity: 0.6; font-size: 14px;">
@@ -631,17 +429,14 @@
     </footer>
 
     <script>
-        // 1. Manejo del Preloader
         window.addEventListener("load", function() {
             const preloader = document.getElementById("preloader");
-            const body = document.body;
             setTimeout(() => {
                 preloader.classList.add("hide");
-                body.classList.add("loaded");
+                document.body.classList.add("loaded");
             }, 500);
         });
 
-        // 2. Animación al hacer Scroll (Intersection Observer optimizado)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -653,34 +448,23 @@
 
         document.querySelectorAll('.project-row').forEach(el => observer.observe(el));
 
-        // 3. Lógica de Galería (Sliders)
         document.querySelectorAll('.gallery-container').forEach(container => {
             const track = container.querySelector('.gallery-track');
             const slides = container.querySelectorAll('.gallery-slide');
             const nextBtn = container.querySelector('.next-btn');
             const prevBtn = container.querySelector('.prev-btn');
+            if(!nextBtn || !prevBtn) return;
 
             let currentIndex = 0;
-
-            function updateSlide() {
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
+            function updateSlide() { track.style.transform = `translateX(-${currentIndex * 100}%)`; }
 
             nextBtn.addEventListener('click', () => {
-                if (currentIndex < slides.length - 1) {
-                    currentIndex++;
-                } else {
-                    currentIndex = 0;
-                }
+                currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
                 updateSlide();
             });
 
             prevBtn.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                } else {
-                    currentIndex = slides.length - 1;
-                }
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
                 updateSlide();
             });
         });
