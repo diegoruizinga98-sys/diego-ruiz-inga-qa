@@ -100,8 +100,11 @@
         .project-content h3 { font-size: 32px; margin-bottom: 16px; }
         .project-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
         .project-results { margin-top: 15px; }
-        .project-results li { margin-bottom: 8px; font-size: 15px; display: flex; gap: 8px; }
-        .project-link { font-weight: 700; color: #00cc52; display: inline-block; }
+        
+        /* CSS CORREGIDO: Eliminado display: flex que rompía el formato del texto */
+        .project-results li { margin-bottom: 8px; font-size: 15px; text-align: justify; }
+        
+        .project-link { font-weight: 700; color: #00cc52; display: inline-block; margin-top: 15px; }
         .project-link:hover { transform: translateX(8px); }
 
         /* Gallery Slider */
@@ -179,7 +182,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN SOBRE MÍ ACTUALIZADA -->
     <section id="about" class="section-about">
         <div class="container grid-2">
             <div>
@@ -237,12 +239,11 @@
                     <div class="project-badges">
                         <img src="https://img.shields.io/badge/BigQuery-669DF6?style=for-the-badge&logo=googlecloud&logoColor=white" alt="BigQuery" loading="lazy" />
                     </div>
-                    <p>Implementé el pipeline ETL completo para Evolta CRM integrando 3 fuentes (Google Ads, Meta Ads y CRM) hacia BigQuery. Automaticé validaciones de calidad sobre +10,000 registros, reduciendo el tiempo operativo en un 80%.</p>
+                    <p style="text-align: justify;">Implementé el pipeline ETL completo para Evolta CRM integrando 3 fuentes (Google Ads, Meta Ads y CRM) hacia BigQuery. Automaticé validaciones de calidad sobre +10,000 registros, reduciendo el tiempo operativo en un 80%.</p>
                     <ul class="project-results">
                         <li>🚀 <strong>Pipeline ETL validado:</strong> Reconciliación fuente-destino sobre +10,000 registros, alcanzando 95% de coincidencia entre dashboard y fuente antes de la entrega.</li>
                         <li>⚡ <strong>Impacto de negocio:</strong> Habilitó el cálculo del CAC por primera vez en la empresa y redujo en un 60% las correcciones post-entrega del dashboard en Looker Studio.</li>
                     </ul>
-                    <br>
                     <a href="https://lookerstudio.google.com/u/0/reporting/3e5e78dd-9a75-46fb-a52e-1f17daa0d498/page/p_1b1wnphryd" target="_blank" class="project-link">Ver Reporte en Vivo →</a>
                 </div>
                 <div class="project-image">
@@ -254,7 +255,7 @@
                 </div>
             </div>
 
-            <!-- 2. Urban Routes Automation -->
+            <!-- 2. Urban Routes Automation (TEXTO ACTUALIZADO AQUÍ) -->
             <div class="project-row reverse">
                 <div class="project-content">
                     <h3>Urban Routes Automation & CI/CD</h3>
@@ -263,13 +264,12 @@
                         <img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white" alt="Jenkins" loading="lazy" />
                         <img src="https://img.shields.io/badge/Jira_Xray-0052CC?style=for-the-badge&logo=jira&logoColor=white" alt="Jira Xray" loading="lazy" />
                     </div>
-                    <p><strong>Experiencia técnica:</strong> Mínimo 1 año de experiencia en automatización con Selenium WebDriver. Automaticé el flujo de pedido reduciendo el tiempo de regresión en un 97% mediante Page Object Model.</p>
+                    <p style="text-align: justify;"><strong>Experiencia técnica:</strong> Especialista en automatización escalable con <strong>Selenium WebDriver</strong>. Lideré la automatización del flujo de pedidos, reduciendo el tiempo de regresión en un 97% mediante la implementación del patrón de diseño Page Object Model (POM).</p>
                     <ul class="project-results">
                         <li>🧪 <strong>Test Management:</strong> Gestión integral en <strong>Jira + Xray</strong>, utilizando <strong>Gherkin</strong> para la definición de escenarios de comportamiento (BDD).</li>
                         <li>🔄 <strong>Testing Continuo:</strong> Integración de la suite en pipelines de <strong>Jenkins</strong>, asegurando validaciones automáticas antes de cada despliegue.</li>
                         <li>🧭 <strong>Calidad E2E:</strong> 67 test cases alcanzando el 100% de aprobación en Chrome y Firefox antes del lanzamiento.</li>
                     </ul>
-                    <br>
                     <a href="https://github.com/diegoruizinga98-sys/qa-project-Urban-Routes-es" target="_blank" class="project-link">Ver Código en GitHub →</a>
                 </div>
                 <div class="project-image">
@@ -290,12 +290,11 @@
                     <div class="project-badges">
                         <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Postman" loading="lazy" />
                     </div>
-                    <p>Diseñé una estrategia de pruebas autónoma sobre 3 capas del sistema (web, móvil y API) para Urban Scooter, consolidando 164 validaciones en un único entregable sin documentación previa y logrando el 100% de aprobación.</p>
+                    <p style="text-align: justify;">Diseñé una estrategia de pruebas autónoma sobre 3 capas del sistema (web, móvil y API) para Urban Scooter, consolidando 164 validaciones en un único entregable sin documentación previa y logrando el 100% de aprobación.</p>
                     <ul class="project-results">
                         <li>🧪 <strong>164 validaciones cubiertas:</strong> 100% de aprobación en web (36/36), datos (55/55) y API (50/50) antes del despliegue.</li>
                         <li>🔗 <strong>50 requests con Postman:</strong> Cobertura completa (100%) de los endpoints críticos de reserva y disponibilidad, verificando HTTP, errores y coherencia de datos.</li>
                     </ul>
-                    <br>
                     <a href="https://drive.google.com/drive/folders/1hYNHTBjCoAHzcap7S92FkVfTF3zZWYCC?usp=sharing" target="_blank" class="project-link">Ver Documentación →</a>
                 </div>
                 <div class="project-image">
@@ -316,12 +315,11 @@
                     <div class="project-badges">
                         <img src="https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white" alt="Android" loading="lazy" />
                     </div>
-                    <p>Validé la primera versión del APK de Urban Lunch en Android Studio desde cero, sin documentación de pruebas previa. Diseñé y ejecuté 72 test cases logrando detectar 14 defectos con una tasa del 19%.</p>
+                    <p style="text-align: justify;">Validé la primera versión del APK de Urban Lunch en Android Studio desde cero, sin documentación de pruebas previa. Diseñé y ejecuté 72 test cases logrando detectar 14 defectos con una tasa del 19%.</p>
                     <ul class="project-results">
                         <li>✅ <strong>Lista de Verificación:</strong> 72 test cases cubriendo escenarios límite, negativos y flujos críticos — 81% pass rate (58 PASSED / 14 FAILED).</li>
                         <li>📲 <strong>Pruebas en Emulador:</strong> 14 defectos de alto impacto en UX documentados en JIRA con pasos de reproducción, severidad y evidencia visual capturada.</li>
                     </ul>
-                    <br>
                     <a href="https://drive.google.com/drive/folders/1vhlUBfbzcVaWPfCRbrkFrTsnELTHIEvB?usp=sharing" target="_blank" class="project-link">Ver Documentación →</a>
                 </div>
                 <div class="project-image">
@@ -340,12 +338,11 @@
                     <div class="project-badges">
                         <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Postman" loading="lazy" />
                     </div>
-                    <p>Analicé los requisitos de Urban Grocers identificando más de 5 zonas grises críticas antes de escribir el primer test case. Construí 2 artefactos de análisis en draw.io (mapa mental y diagrama de flujo) para estructurar la cobertura.</p>
+                    <p style="text-align: justify;">Analicé los requisitos de Urban Grocers identificando más de 5 zonas grises críticas antes de escribir el primer test case. Construí 2 artefactos de análisis en draw.io (mapa mental y diagrama de flujo) para estructurar la cobertura.</p>
                     <ul class="project-results">
                         <li>✔️ <strong>71 casos de prueba:</strong> Sobre 2 endpoints POST: 46 aprobados y 25 defectos detectados (35% defect rate), reportados en JIRA con trazabilidad directa.</li>
                         <li>🔍 <strong>Pruebas de Endpoints:</strong> Cobertura completa de respuestas 200 OK, errores 400 y validaciones de estructura de datos antes del despliegue.</li>
                     </ul>
-                    <br>
                     <a href="https://drive.google.com/drive/folders/1d8OTcI0mvg1a99J-VfiXzY74-YbjH6Tm?usp=sharing" target="_blank" class="project-link">Ver Documentación →</a>
                 </div>
                 <div class="project-image">
@@ -364,12 +361,11 @@
                     <div class="project-badges">
                         <img src="https://img.shields.io/badge/Manual%20Testing-007ACC?style=for-the-badge" alt="Manual" loading="lazy" />
                     </div>
-                    <p>Validé la funcionalidad de car-sharing de Urban Routes en 2 navegadores con resoluciones distintas. Elaboré 4 listas de comprobación para formularios, ventanas clave y métodos de pago.</p>
+                    <p style="text-align: justify;">Validé la funcionalidad de car-sharing de Urban Routes en 2 navegadores con resoluciones distintas. Elaboré 4 listas de comprobación para formularios, ventanas clave y métodos de pago.</p>
                     <ul class="project-results">
                         <li>✔️ <strong>Diseño de Pruebas:</strong> 67 test cases en Chrome (800×600) y Firefox (1920×1080), 100% aprobados — alcanzando 95% de cobertura funcional del car-sharing.</li>
                         <li>🐞 <strong>Reporte de Defectos:</strong> Inconsistencias cross-browser documentadas en JIRA con pasos de reproducción, severidad clasificada y evidencia visual.</li>
                     </ul>
-                    <br>
                     <a href="https://drive.google.com/drive/folders/1wskMZgVsphhaVxGmu0Y33nkUHGPMp3hX?usp=drive_link" target="_blank" class="project-link">Ver Documentación →</a>
                 </div>
                 <div class="project-image">
@@ -388,12 +384,11 @@
                     <div class="project-badges">
                         <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" loading="lazy" />
                     </div>
-                    <p>Convertí la lista de comprobación manual del campo 'name' en una suite automatizada con Python y Pytest, reduciendo el tiempo de ejecución en más del 90% y eliminando el envío manual de requests desde Postman.</p>
+                    <p style="text-align: justify;">Convertí la lista de comprobación manual del campo 'name' en una suite automatizada con Python y Pytest, reduciendo el tiempo de ejecución en más del 90% y eliminando el envío manual de requests desde Postman.</p>
                     <ul class="project-results">
                         <li>✅ <strong>3 tipos de escenario automatizados:</strong> Válidos, inválidos y de borde sobre el endpoint POST de creación de kits — garantizando 100% de reproducibilidad.</li>
                         <li>🧩 <strong>Arquitectura Modular:</strong> Suite con configuración en data.py, funciones de prueba independientes y repositorio entregado en GitHub con historial organizado.</li>
                     </ul>
-                    <br>
                     <a href="https://github.com/diegoruizinga98-sys/qa-project-Urban-Grocers-app-es/" target="_blank" class="project-link">Repositorio GitHub →</a>
                 </div>
                 <div class="project-image">
